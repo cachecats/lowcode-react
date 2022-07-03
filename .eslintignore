@@ -1,0 +1,8 @@
+build/
+node_modules/
+public/
+config-overrides.js
+react-app-env.d.ts
+.eslintrc.js
+prettier.config.js
+.eslintignore
