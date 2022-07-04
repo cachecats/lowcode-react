@@ -1,8 +1,10 @@
 .layoutPanel {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex: 1;
   flex-direction: row;
   background-color: #fff;
   margin: 0 10px;
+  box-sizing: border-box;
+
 }
