@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.scss';
-import HomePage from './module/Home';
+import HomePage from './modules/Home';
 
 interface AppProps {}
 

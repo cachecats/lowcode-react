@@ -1,8 +1,7 @@
 import React from 'react';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styles from './index.module.scss';
-import DroppableContainer from '../../../components/DragAndDrop/DroppableContainer';
-import DragContainer from '../../../components/DragAndDrop/DragContainer';
+import DragContainer from '@/components/DragAndDrop/DragContainer';
+import DroppableContainer from '@/components/DragAndDrop/DroppableContainer';
 
 interface ComponentsPanelProps {}
 

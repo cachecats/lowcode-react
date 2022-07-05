@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './index.module.scss';
 import GridLayout from 'react-grid-layout';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
-import DragContainer from '../../../components/DragAndDrop/DragContainer';
-import DroppableContainer from '../../../components/DragAndDrop/DroppableContainer';
+import DroppableContainer from '@/components/DragAndDrop/DroppableContainer';
+import DragContainer from '@/components/DragAndDrop/DragContainer';
 
 interface LayoutPanelProps {}
 
