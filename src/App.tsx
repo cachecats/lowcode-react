@@ -8,6 +8,7 @@ const App: React.FC<AppProps> = () => {
   return (
     <div className={styles.container}>
       <HomePage />
+      {/*<DesignPage />*/}
     </div>
   );
 };
