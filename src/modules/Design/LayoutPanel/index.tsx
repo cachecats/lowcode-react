@@ -1,12 +1,8 @@
 import React, { useRef, useState } from 'react';
 import styles from './index.module.scss';
 import GridLayout from 'react-grid-layout';
-import DroppableContainer from '@/components/DragAndDrop/DroppableContainer';
-import DragContainer from '@/components/DragAndDrop/DragContainer';
 import { useSize } from 'ahooks';
 import EventBus from '@/common/EventBus';
-import { Responsive, WidthProvider } from 'react-grid-layout';
-const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 interface LayoutPanelProps {}
 
@@ -32,7 +28,9 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
 
   function onDrop(layout, layoutItem, _event) {
     console.log('onDrop', { layout, layoutItem, _event });
-    console.log('data', _event.dataTransfer.getData('id'));
+    const id = _event.dataTransfer.getData('id');
+    console.log('data id', id);
+    addComponent(id);
   }
 
   function onLayoutChange(layout: any) {
@@ -57,25 +55,6 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
           <div key={item.i}>{item.i}</div>
         ))}
       </GridLayout>
-      {/*<ResponsiveReactGridLayout*/}
-      {/*  className={styles.droppableContainer}*/}
-      {/*  layouts={{ lg: layouts }}*/}
-      {/*  // onBreakpointChange={this.onBreakpointChange}*/}
-      {/*  onLayoutChange={onLayoutChange}*/}
-      {/*  onDrop={onDrop}*/}
-      {/*  // WidthProvider option*/}
-      {/*  measureBeforeMount={false}*/}
-      {/*  // I like to have it animate on mount. If you don't, delete `useCSSTransforms` (it's default `true`)*/}
-      {/*  // and set `measureBeforeMount={true}`.*/}
-      {/*  useCSSTransforms={true}*/}
-      {/*  // compactType={this.state.compactType}*/}
-      {/*  // preventCollision={!this.state.compactType}*/}
-      {/*  isDroppable={true}*/}
-      {/*>*/}
-      {/*  {layouts?.map((item) => (*/}
-      {/*    <div key={item.i}>{item.i}</div>*/}
-      {/*  ))}*/}
-      {/*</ResponsiveReactGridLayout>*/}
     </div>
   );
 };
