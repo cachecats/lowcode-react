@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.module.scss';
 import DragContainer from '@/components/DragAndDrop/DragContainer';
 import DroppableContainer from '@/components/DragAndDrop/DroppableContainer';
+import { COMPONENTS_LIST } from '@/config/ComponentsConfig';
 
 interface ComponentsPanelProps {}
 
@@ -11,11 +12,16 @@ const ComponentsPanel: React.FC<ComponentsPanelProps> = () => {
       className={styles.componentsPanel}
       droppableId={'components'}
       type={'vertical'}
-      direction="horizontal"
+      direction="vertical"
+      isDropDisabled={true}
     >
-      <DragContainer draggableId={'2'} index={1}>
-        <div className={styles.test}>Test</div>
-      </DragContainer>
+      {COMPONENTS_LIST?.map((comp, index) => (
+        <DragContainer key={comp.id} draggableId={comp.id} index={index}>
+          <div key={comp.id} className={styles.item}>
+            {comp.name}
+          </div>
+        </DragContainer>
+      ))}
     </DroppableContainer>
   );
 };
