@@ -4,19 +4,19 @@ export const COMPONENTS_LIST: IComponentsType[] = [
   {
     id: 'button',
     type: 'button',
-    icon: '',
+    icon: 'https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg',
     name: '按钮'
   },
   {
-    id: 'button2',
-    type: 'button2',
-    icon: '',
-    name: '按钮2'
+    id: 'form',
+    type: 'form',
+    icon: 'https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg',
+    name: '表单'
   },
   {
-    id: 'button3',
-    type: 'button3',
-    icon: '',
-    name: '按钮3'
+    id: 'table',
+    type: 'table',
+    icon: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
+    name: '表格'
   }
 ];
