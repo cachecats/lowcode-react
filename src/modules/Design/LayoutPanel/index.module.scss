@@ -12,3 +12,10 @@
     height: 500px;
   }
 }
+
+.itemWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

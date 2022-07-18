@@ -3,6 +3,10 @@ import styles from './index.module.scss';
 import GridLayout from 'react-grid-layout';
 import { useSize } from 'ahooks';
 import EventBus from '@/common/EventBus';
+import { findComponentsById } from '@/utils';
+import { IComponentsType } from '@/types/componentsType';
+import { getLayouts, renderComponents } from '@/modules/Design/LayoutPanel/config';
+import { Button } from 'antd';
 
 interface LayoutPanelProps {}
 
@@ -11,26 +15,26 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
   const layoutSize = useSize(ref);
   const [layouts, setLayouts] = useState<any>([]);
 
-  EventBus.on('addComponent', (value) => {
-    value && addComponent(value);
-  });
-
-  function addComponent(value: any) {
+  function addComponent(components: IComponentsType) {
     const newItem = {
-      i: value + new Date().getTime(),
+      // 加上时间戳可以避免同一个组件无法多次添加的问题
+      i: `${components.id}-${new Date().getTime()}`,
       x: 0,
       y: Infinity, // puts it at the bottom
-      w: 6,
-      h: 6
+      w: components.width,
+      h: components.height,
+      name: components.name
     };
     setLayouts([...layouts, newItem]);
   }
 
   function onDrop(layout, layoutItem, _event) {
     console.log('onDrop', { layout, layoutItem, _event });
+    // 从 _event 中获取拖拽进来的是哪个组依
     const id = _event.dataTransfer.getData('id');
-    console.log('data id', id);
-    addComponent(id);
+    // 在组件列表中找到这个组件
+    const components = findComponentsById(id);
+    addComponent(components);
   }
 
   function onLayoutChange(layout: any) {
@@ -51,9 +55,7 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
         isDroppable={true}
         onLayoutChange={onLayoutChange}
       >
-        {layouts?.map((item) => (
-          <div key={item.i}>{item.i}</div>
-        ))}
+        {getLayouts(layouts)}
       </GridLayout>
     </div>
   );
