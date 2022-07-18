@@ -1,18 +1,19 @@
 import React, { useRef, useState } from 'react';
 import styles from './index.module.scss';
-import GridLayout from 'react-grid-layout';
+import GridLayout, { Layout } from 'react-grid-layout';
 import { useSize } from 'ahooks';
-import EventBus from '@/common/EventBus';
 import { findComponentsById } from '@/utils';
 import { IComponentsType } from '@/types/componentsType';
-import { getLayouts, renderComponents } from '@/modules/Design/LayoutPanel/config';
-import { Button } from 'antd';
+import { renderComponents } from '@/modules/Design/LayoutPanel/config';
+import { useDispatch } from 'react-redux';
+import { updateCurrentEditComponent } from '@/common/redux/componentsSlice';
 
 interface LayoutPanelProps {}
 
 const LayoutPanel: React.FC<LayoutPanelProps> = () => {
   const ref = useRef(null);
   const layoutSize = useSize(ref);
+  const dispatch = useDispatch();
   const [layouts, setLayouts] = useState<any>([]);
 
   function addComponent(components: IComponentsType) {
@@ -39,6 +40,23 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
 
   function onLayoutChange(layout: any) {
     console.log('onLayoutChange', { layout });
+  }
+
+  function getLayouts(layouts: Layout[]) {
+    return layouts?.map((layout) => {
+      return (
+        <div
+          className={styles.itemWrapper}
+          key={layout.i}
+          onClick={() => {
+            console.log('onCLick', layout);
+            dispatch(updateCurrentEditComponent(layout.i));
+          }}
+        >
+          {renderComponents(layout.i)}
+        </div>
+      );
+    });
   }
 
   return (
