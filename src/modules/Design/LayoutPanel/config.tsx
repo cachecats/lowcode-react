@@ -1,11 +1,10 @@
-import LButton from '@/components/Button/LButton';
+import LButton from '@/components/button/LButton';
 import React from 'react';
-import { Layout } from 'react-grid-layout';
-import styles from './index.module.scss';
+import { parseId } from '@/utils';
 
 export function renderComponents(key: string) {
   // - 前面的为组件的id
-  const id = key.split('-')[0];
+  const id = parseId(key);
   console.log('renderComponents id', id);
   switch (id) {
     case 'button':

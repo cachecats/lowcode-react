@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import styles from './index.module.scss';
 import GridLayout, { Layout } from 'react-grid-layout';
 import { useSize } from 'ahooks';
-import { findComponentsById } from '@/utils';
+import { findComponentsById, formatId } from '@/utils';
 import { IComponentsType } from '@/types/componentsType';
 import { renderComponents } from '@/modules/Design/LayoutPanel/config';
 import { useDispatch } from 'react-redux';
@@ -19,7 +19,7 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
   function addComponent(components: IComponentsType) {
     const newItem = {
       // 加上时间戳可以避免同一个组件无法多次添加的问题
-      i: `${components.id}-${new Date().getTime()}`,
+      i: formatId(components.id),
       x: 0,
       y: Infinity, // puts it at the bottom
       w: components.width,
