@@ -3,13 +3,13 @@ import React from 'react';
 import { parseId } from '@/utils';
 
 export function renderComponents(key: string) {
-  // - 前面的为组件的id
+  // ### 前面的为组件的id
   const id = parseId(key);
   console.log('renderComponents id', id);
   switch (id) {
     case 'button':
-      return <LButton key={id} text={'按钮'} />;
+      return <LButton key={key} id={key} />;
     default:
-      return <div key={id}>{id}</div>;
+      return <div key={key}>{id}</div>;
   }
 }

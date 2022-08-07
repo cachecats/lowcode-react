@@ -1,0 +1,59 @@
+{
+  "settings": [
+    {
+      "id": "text",
+      "label": "按钮文字",
+      "type": "input",
+      "defaultValue": "按钮"
+    },
+    {
+      "id": "type",
+      "label": "类型",
+      "type": "radio",
+      "optionType": "button",
+      "defaultValue": "primary",
+      "options": [
+        {
+          "label": "default",
+          "value": "default"
+        },
+        {
+          "label": "primary",
+          "value": "primary"
+        },
+        {
+          "label": "ghost",
+          "value": "ghost"
+        },
+        {
+          "label": "dashed",
+          "value": "dashed"
+        },
+        {
+          "label": "link",
+          "value": "link"
+        },
+        {
+          "label": "text",
+          "value": "text"
+        }
+      ]
+    },
+    {
+      "id": "danger",
+      "label": "危险按钮",
+      "type": "radio",
+      "defaultValue": false,
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "否",
+          "value": false
+        }
+      ]
+    }
+  ]
+}
