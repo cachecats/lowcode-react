@@ -43,6 +43,7 @@
       "id": "danger",
       "label": "危险按钮",
       "type": "radio",
+      "optionType": "button",
       "defaultValue": false,
       "options": [
         {

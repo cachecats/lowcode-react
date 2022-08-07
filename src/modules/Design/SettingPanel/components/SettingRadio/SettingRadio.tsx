@@ -25,17 +25,13 @@ const SettingRadio: React.FC<SettingRadioProps> = ({ componentId, setting }) => 
   return (
     <SettingRow label={setting.label}>
       <Radio.Group
+        options={options}
         onChange={onChange}
         defaultValue={defaultValue || options?.[0]?.value}
         optionType={optionType}
+        buttonStyle="solid"
         size={'middle'}
-      >
-        {options?.map((option) => (
-          <Radio.Button key={option.value} value={option.value}>
-            {option.label}
-          </Radio.Button>
-        ))}
-      </Radio.Group>
+      />
     </SettingRow>
   );
 };
