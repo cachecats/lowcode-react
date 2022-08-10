@@ -9,8 +9,7 @@
     {
       "id": "type",
       "label": "类型",
-      "type": "radio",
-      "optionType": "button",
+      "type": "select",
       "defaultValue": "primary",
       "options": [
         {

@@ -9,7 +9,7 @@ interface SettingRadioProps extends SettingCommonProps {}
 
 const SettingRadio: React.FC<SettingRadioProps> = ({ componentId, setting }) => {
   const dispatch = useDispatch();
-  const { optionType, options, defaultValue } = setting;
+  const { label, optionType, options, defaultValue } = setting;
 
   function onChange(e: RadioChangeEvent) {
     dispatch(
@@ -23,11 +23,11 @@ const SettingRadio: React.FC<SettingRadioProps> = ({ componentId, setting }) => 
   }
 
   return (
-    <SettingRow label={setting.label}>
+    <SettingRow label={label}>
       <Radio.Group
         options={options}
         onChange={onChange}
-        defaultValue={defaultValue || options?.[0]?.value}
+        defaultValue={defaultValue === null ? options?.[0]?.value : defaultValue}
         optionType={optionType}
         buttonStyle="solid"
         size={'middle'}

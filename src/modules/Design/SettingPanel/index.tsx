@@ -10,7 +10,8 @@ import { IMetaType, ISetting } from '@/types';
 import SettingRow from '@/modules/Design/SettingPanel/components/SettingRow';
 import { Input } from 'antd';
 import SettingInput from '@/modules/Design/SettingPanel/components/SettingInput';
-import SettingRadio from '@/modules/Design/SettingPanel/components/SettingRadio/SettingRadio';
+import SettingRadio from '@/modules/Design/SettingPanel/components/SettingRadio';
+import SettingSelect from '@/modules/Design/SettingPanel/components/SettingSelect/SettingSelect';
 
 interface SettingPanelProps {}
 
@@ -55,6 +56,10 @@ const SettingPanel: React.FC<SettingPanelProps> = () => {
         return <SettingInput componentId={currentEditComponent} setting={setting} />;
       case 'radio':
         return <SettingRadio componentId={currentEditComponent} setting={setting} />;
+      case 'select':
+        return (
+          <SettingSelect componentId={currentEditComponent} setting={setting} />
+        );
       default:
         return <div>设置渲染失败</div>;
     }
@@ -62,6 +67,7 @@ const SettingPanel: React.FC<SettingPanelProps> = () => {
 
   return (
     <div className={styles.settingPanel}>
+      <h3>组件属性</h3>
       {metaData?.settings?.map((setting, index) => (
         <div key={index}>{renderSetting(setting)}</div>
       ))}

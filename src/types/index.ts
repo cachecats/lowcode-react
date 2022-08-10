@@ -3,7 +3,7 @@ export interface IOption {
   value: any;
 }
 
-export type SettingType = 'input' | 'radio';
+export type SettingType = 'input' | 'radio' | 'select';
 
 export interface IMetaType {
   settings: ISetting[];
