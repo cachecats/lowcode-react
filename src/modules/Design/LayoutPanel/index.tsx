@@ -1,12 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import styles from './index.module.scss';
 import GridLayout, { Layout } from 'react-grid-layout';
 import { useSize } from 'ahooks';
 import { findComponentsById, formatId } from '@/utils';
 import { IComponentsType } from '@/types/componentsType';
 import { renderComponents } from '@/modules/Design/LayoutPanel/config';
-import { useDispatch } from 'react-redux';
-import { updateCurrentEditComponent } from '@/common/redux/componentsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectCurrentEditComponent,
+  updateCurrentEditComponent
+} from '@/common/redux/componentsSlice';
+import cn from 'classnames';
 
 interface LayoutPanelProps {}
 
@@ -15,6 +19,26 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
   const layoutSize = useSize(ref);
   const dispatch = useDispatch();
   const [layouts, setLayouts] = useState<any>([]);
+  const currentEditComponent = useSelector(selectCurrentEditComponent);
+
+  const getLayouts = useMemo(() => {
+    return layouts?.map((layout) => {
+      return (
+        <div
+          className={cn([
+            styles.itemWrapper,
+            currentEditComponent === layout.i ? styles.active : ''
+          ])}
+          key={layout.i}
+          onClick={() => {
+            dispatch(updateCurrentEditComponent(layout.i));
+          }}
+        >
+          {renderComponents(layout.i)}
+        </div>
+      );
+    });
+  }, [currentEditComponent, layouts]);
 
   function addComponent(components: IComponentsType) {
     const newItem = {
@@ -26,6 +50,7 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
       h: components.height,
       name: components.name
     };
+    dispatch(updateCurrentEditComponent(newItem.i));
     setLayouts([...layouts, newItem]);
   }
 
@@ -42,23 +67,6 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
     console.log('onLayoutChange', { layout });
   }
 
-  function getLayouts(layouts: Layout[]) {
-    return layouts?.map((layout) => {
-      return (
-        <div
-          className={styles.itemWrapper}
-          key={layout.i}
-          onClick={() => {
-            console.log('onCLick', layout);
-            dispatch(updateCurrentEditComponent(layout.i));
-          }}
-        >
-          {renderComponents(layout.i)}
-        </div>
-      );
-    });
-  }
-
   return (
     <div ref={ref} className={styles.layoutPanel}>
       <GridLayout
@@ -73,7 +81,7 @@ const LayoutPanel: React.FC<LayoutPanelProps> = () => {
         isDroppable={true}
         onLayoutChange={onLayoutChange}
       >
-        {getLayouts(layouts)}
+        {getLayouts}
       </GridLayout>
     </div>
   );
