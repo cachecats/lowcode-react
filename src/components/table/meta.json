@@ -1,10 +1,33 @@
 {
   "settings": [
     {
-      "id": "text",
-      "label": "按钮文字",
-      "type": "input",
-      "defaultValue": "按钮"
+      "id": "columns",
+      "label": "表格列",
+      "type": "array",
+      "defaultValue": [
+        {
+          "title": "姓名",
+          "dataIndex": "name",
+          "width": 100
+        }
+      ],
+      "options": [
+        {
+          "id": "title",
+          "label": "标题",
+          "valueType": "text"
+        },
+        {
+          "id": "dataIndex",
+          "label": "数据字段",
+          "valueType": "text"
+        },
+        {
+          "id": "width",
+          "label": "列宽",
+          "valueType": "digit"
+        }
+      ]
     },
     {
       "id": "type",

@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 interface SettingRadioProps extends SettingCommonProps {}
 
-const SettingRadio: React.FC<SettingRadioProps> = ({ componentId, setting }) => {
+const RadioSetter: React.FC<SettingRadioProps> = ({ componentId, setting }) => {
   const dispatch = useDispatch();
   const { label, optionType, options, defaultValue } = setting;
 
@@ -36,4 +36,4 @@ const SettingRadio: React.FC<SettingRadioProps> = ({ componentId, setting }) => 
   );
 };
 
-export default SettingRadio;
+export default RadioSetter;

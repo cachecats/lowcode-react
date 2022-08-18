@@ -8,7 +8,7 @@ import { SettingCommonProps } from '@/modules/Design/SettingPanel/types';
 
 interface SettingInputProps extends SettingCommonProps {}
 
-const SettingInput: React.FC<SettingInputProps> = ({ componentId, setting }) => {
+const InputSetter: React.FC<SettingInputProps> = ({ componentId, setting }) => {
   let dispatch = useDispatch();
   const [value, setValue] = useState(setting.defaultValue?.toString() || '');
 
@@ -36,4 +36,4 @@ const SettingInput: React.FC<SettingInputProps> = ({ componentId, setting }) => 
   );
 };
 
-export default SettingInput;
+export default InputSetter;

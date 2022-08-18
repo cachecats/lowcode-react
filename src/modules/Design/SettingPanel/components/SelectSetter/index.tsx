@@ -7,7 +7,7 @@ import { updateSettings } from '@/common/redux/componentsSlice';
 
 interface SettingSelectProps extends SettingCommonProps {}
 
-const SettingSelect: React.FC<SettingSelectProps> = ({ componentId, setting }) => {
+const SelectSetter: React.FC<SettingSelectProps> = ({ componentId, setting }) => {
   const dispatch = useDispatch();
   const { label, options, defaultValue } = setting;
 
@@ -34,4 +34,4 @@ const SettingSelect: React.FC<SettingSelectProps> = ({ componentId, setting }) =
   );
 };
 
-export default SettingSelect;
+export default SelectSetter;

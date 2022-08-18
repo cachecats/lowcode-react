@@ -7,11 +7,10 @@ import {
 } from '@/common/redux/componentsSlice';
 import { parseId } from '@/utils';
 import { IMetaType, ISetting } from '@/types';
-import SettingRow from '@/modules/Design/SettingPanel/components/SettingRow';
-import { Input } from 'antd';
-import SettingInput from '@/modules/Design/SettingPanel/components/SettingInput';
-import SettingRadio from '@/modules/Design/SettingPanel/components/SettingRadio';
-import SettingSelect from '@/modules/Design/SettingPanel/components/SettingSelect/SettingSelect';
+import InputSetter from '@/modules/Design/SettingPanel/components/InputSetter';
+import RadioSetter from '@/modules/Design/SettingPanel/components/RadioSetter';
+import SelectSetter from '@/modules/Design/SettingPanel/components/SelectSetter';
+import ArraySetter from '@/modules/Design/SettingPanel/components/ArraySetter';
 
 interface SettingPanelProps {}
 
@@ -53,13 +52,13 @@ const SettingPanel: React.FC<SettingPanelProps> = () => {
   function renderSetting(setting: ISetting) {
     switch (setting.type) {
       case 'input':
-        return <SettingInput componentId={currentEditComponent} setting={setting} />;
+        return <InputSetter componentId={currentEditComponent} setting={setting} />;
       case 'radio':
-        return <SettingRadio componentId={currentEditComponent} setting={setting} />;
+        return <RadioSetter componentId={currentEditComponent} setting={setting} />;
       case 'select':
-        return (
-          <SettingSelect componentId={currentEditComponent} setting={setting} />
-        );
+        return <SelectSetter componentId={currentEditComponent} setting={setting} />;
+      case 'array':
+        return <ArraySetter componentId={currentEditComponent} setting={setting} />;
       default:
         return <div>设置渲染失败</div>;
     }
