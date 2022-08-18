@@ -1,87 +1,60 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { SettingCommonProps } from '@/modules/Design/SettingPanel/types';
-import { Collapse } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
-import { EditableProTable, Key, ProColumns } from '@ant-design/pro-components';
-const { Panel } = Collapse;
+import { Button, Collapse, Drawer, Space } from 'antd';
+import { DragSortTable, ProColumns } from '@ant-design/pro-components';
+import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
+import styles from './index.module.scss';
+import { getColumns } from '@/modules/Design/SettingPanel/components/ArraySetter/config';
+import AddColumnDrawer from '@/modules/Design/SettingPanel/components/ArraySetter/AddColumnDrawer';
 
-interface ArraySetterProps {}
+const { Panel } = Collapse;
 
 const ArraySetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => {
   const { options, defaultValue } = setting;
-  const defaultValues = defaultValue?.map((item) => ({
-    id: Date.now(),
+  const defaultValues = defaultValue?.map((item, index) => ({
+    id: Date.now() + index,
     ...item
   }));
+  const [dataSource, setDataSource] = useState<any[]>(defaultValues);
+  const [visible, setVisible] = useState(false);
 
-  // const [dataSource, setDataSource] = useState<any[]>(() => defaultValues);
-  // const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
-  //   defaultValues?.map((item) => item.id)
-  // );
-  const [dataSource, setDataSource] = useState<any[]>(() => defaultValues);
-  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
+  const handleDragSortEnd = (newDataSource: any) => {
+    console.log('排序后的数据', newDataSource);
+    setDataSource(newDataSource);
+  };
 
-  useEffect(() => {
-    console.log('dataSource', dataSource);
-  }, [dataSource]);
-
-  function getColumns(): ProColumns[] {
-    // const editColumn: ProColumns = {
-    //   title: '',
-    //   dataIndex: 'edit',
-    //   render: () => <EditOutlined style={{ fontSize: 14 }} />
-    // };
-    const list: ProColumns[] =
-      options?.slice(0, 2)?.map((option) => {
-        return {
-          width: 100,
-          title: option.label,
-          dataIndex: option.id,
-          key: option.id,
-          valueType: option.valueType
-        };
-      }) || [];
-    // list.unshift(editColumn);
-    console.log('columns', list);
-    return list;
+  function onClose() {
+    setVisible(false);
   }
 
+  function onEdit(row: any) {
+    setVisible(true);
+  }
+  function onDelete() {}
+
   return (
-    <Collapse defaultActiveKey={['1']}>
-      <Panel header={setting.label} key="1">
-        <EditableProTable<any>
-          columns={getColumns()}
-          rowKey="id"
-          // value={dataSource}
-          onChange={(value) => {
-            console.log('onChange0---', value);
-            setDataSource(value);
-          }}
-          recordCreatorProps={{
-            newRecordType: 'dataSource',
-            record: () => ({
-              id: Date.now(),
-              title: '',
-              dataIndex: ''
-            })
-          }}
-          editable={{
-            type: 'multiple',
-            editableKeys,
-            actionRender: (row, _, dom) => [dom.delete],
-            onValuesChange: (record, recordList) => {
-              console.log('onValuesChange---', record, recordList);
-              setDataSource(recordList);
-            },
-            // onChange: setEditableRowKeys
-            onChange: (editableKeys: Key[], editableRows: any[]) => {
-              setEditableRowKeys(editableKeys);
-              console.log('onChange---', { editableKeys, editableRows });
-            }
-          }}
-        />
-      </Panel>
-    </Collapse>
+    <>
+      <Collapse defaultActiveKey={['1']}>
+        <Panel header={setting.label} key="1">
+          <DragSortTable
+            columns={getColumns({ options: options || [], onEdit, onDelete })}
+            rowKey="id"
+            pagination={false}
+            dataSource={dataSource}
+            dragSortKey="sort"
+            onDragSortEnd={handleDragSortEnd}
+            search={false}
+            toolBarRender={false}
+          />
+          <div className={styles.btnWrapper}>
+            <Button key={1} type={'dashed'} icon={<PlusOutlined />}>
+              新增
+            </Button>
+          </div>
+        </Panel>
+      </Collapse>
+      <AddColumnDrawer visible={visible} setVisible={setVisible} />
+    </>
   );
 };
 

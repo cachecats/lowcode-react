@@ -9,6 +9,11 @@
           "title": "姓名",
           "dataIndex": "name",
           "width": 100
+        },
+        {
+          "title": "年龄",
+          "dataIndex": "age",
+          "width": 100
         }
       ],
       "options": [
