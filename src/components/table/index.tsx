@@ -17,18 +17,10 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
   const actionRef = useRef<ActionType>();
 
   const setting = useSelector(selectSettings);
-  const { text, type, danger } = useMemo(() => {
+  const { columns } = useMemo(() => {
     return setting[id] || {};
   }, [setting, id]);
-
-  const columns: ProColumns[] = [
-    {
-      width: 150,
-      dataIndex: 'name',
-      title: '姓名',
-      hideInSearch: true
-    }
-  ];
+  console.log({ setting, id, columns });
 
   return (
     <div style={{ width: '100%' }}>
@@ -40,8 +32,8 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
         rowKey="ID"
         pagination={pagination}
         dateFormatter="string"
-        search={{ filterType: 'light' }}
-        scroll={{ x: 1200 }}
+        search={false}
+        // scroll={{ x: 1200 }}
         toolbar={{ actions: [] }}
       />
     </div>

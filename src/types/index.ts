@@ -7,6 +7,7 @@ export interface IOption {
   label: string | number;
   value: any;
   valueType?: ProFieldValueType;
+  required?: boolean;
 }
 
 export interface IMetaType {

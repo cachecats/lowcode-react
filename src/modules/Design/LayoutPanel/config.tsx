@@ -11,7 +11,7 @@ export function renderComponents(key: string) {
     case 'button':
       return <LButton key={key} id={key} />;
     case 'table':
-      return <LTable key={key} id={id} />;
+      return <LTable key={key} id={key} />;
     default:
       return <div key={key}>{id}</div>;
   }

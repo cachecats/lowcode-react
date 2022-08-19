@@ -20,12 +20,14 @@
         {
           "id": "title",
           "label": "标题",
-          "valueType": "text"
+          "valueType": "text",
+          "required": true
         },
         {
           "id": "dataIndex",
           "label": "数据字段",
-          "valueType": "text"
+          "valueType": "text",
+          "required": true
         },
         {
           "id": "width",
