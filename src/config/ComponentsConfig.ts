@@ -23,6 +23,6 @@ export const COMPONENTS_LIST: IComponentsType[] = [
     icon: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
     name: '表格',
     width: 24,
-    height: 14
+    height: 20
   }
 ];
