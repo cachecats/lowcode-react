@@ -11,6 +11,7 @@ import InputSetter from '@/modules/Design/SettingPanel/components/InputSetter';
 import RadioSetter from '@/modules/Design/SettingPanel/components/RadioSetter';
 import SelectSetter from '@/modules/Design/SettingPanel/components/SelectSetter';
 import ArraySetter from '@/modules/Design/SettingPanel/components/ArraySetter';
+import { renderSetting } from '@/modules/Design/SettingPanel/config';
 
 interface SettingPanelProps {}
 
@@ -49,26 +50,11 @@ const SettingPanel: React.FC<SettingPanelProps> = () => {
     );
   }
 
-  function renderSetting(setting: ISetting) {
-    switch (setting.type) {
-      case 'input':
-        return <InputSetter componentId={currentEditComponent} setting={setting} />;
-      case 'radio':
-        return <RadioSetter componentId={currentEditComponent} setting={setting} />;
-      case 'select':
-        return <SelectSetter componentId={currentEditComponent} setting={setting} />;
-      case 'array':
-        return <ArraySetter componentId={currentEditComponent} setting={setting} />;
-      default:
-        return <div>设置渲染失败</div>;
-    }
-  }
-
   return (
     <div className={styles.settingPanel}>
       <h3>组件属性</h3>
       {metaData?.settings?.map((setting, index) => (
-        <div key={index}>{renderSetting(setting)}</div>
+        <div key={index}>{renderSetting(currentEditComponent, setting)}</div>
       ))}
     </div>
   );

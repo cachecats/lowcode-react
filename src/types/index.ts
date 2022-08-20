@@ -1,6 +1,12 @@
 import { ProFieldValueType } from '@ant-design/pro-components';
 
-export type SettingType = 'input' | 'radio' | 'select' | 'array' | 'number';
+export type SettingType =
+  | 'input'
+  | 'radio'
+  | 'select'
+  | 'array'
+  | 'number'
+  | 'group';
 
 export interface IOption {
   id?: string;
@@ -15,6 +21,7 @@ export interface IMetaType {
 }
 
 export interface ISetting {
+  parentId: string;
   id: string;
   label: string;
   type: SettingType;
@@ -22,6 +29,7 @@ export interface ISetting {
   optionType?: 'default' | 'button';
   defaultValue: any;
   options?: IOption[];
+  children?: ISetting[];
 }
 
 export interface IArraySetter {

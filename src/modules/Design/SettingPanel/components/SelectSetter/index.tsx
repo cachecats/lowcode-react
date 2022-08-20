@@ -2,25 +2,27 @@ import React from 'react';
 import { SettingCommonProps } from '@/modules/Design/SettingPanel/types';
 import SettingRow from '@/modules/Design/SettingPanel/components/SettingRow';
 import { Select } from 'antd';
-import { useDispatch } from 'react-redux';
-import { updateSettings } from '@/common/redux/componentsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSettings, updateSettings } from '@/common/redux/componentsSlice';
+import { updateSettingsData } from '@/modules/Design/SettingPanel/config';
 
 interface SettingSelectProps extends SettingCommonProps {}
 
 const SelectSetter: React.FC<SettingSelectProps> = ({ componentId, setting }) => {
   const dispatch = useDispatch();
+  const storeSetting = useSelector(selectSettings);
+
   const { label, options, defaultValue } = setting;
 
   function onSelect(value: any) {
     console.log('select', value);
-    dispatch(
-      updateSettings({
-        id: componentId,
-        data: {
-          [setting.id]: value
-        }
-      })
-    );
+    updateSettingsData({
+      dispatch,
+      componentId,
+      setting,
+      value,
+      storeSetting
+    });
   }
 
   return (

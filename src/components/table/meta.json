@@ -37,51 +37,60 @@
       ]
     },
     {
-      "id": "type",
-      "label": "类型",
-      "type": "select",
-      "defaultValue": "primary",
-      "options": [
+      "id": "search",
+      "label": "搜索栏",
+      "type": "group",
+      "children": [
         {
-          "label": "default",
-          "value": "default"
+          "parentId": "search",
+          "id": "isSearch",
+          "label": "启用搜索",
+          "type": "radio",
+          "defaultValue": false,
+          "options": [
+            {
+              "label": "关闭",
+              "value": false
+            },
+            {
+              "label": "开启",
+              "value": true
+            }
+          ]
         },
         {
-          "label": "primary",
-          "value": "primary"
+          "parentId": "search",
+          "id": "filterType",
+          "label": "筛选类型",
+          "type": "radio",
+          "defaultValue": "query",
+          "options": [
+            {
+              "label": "query",
+              "value": "query"
+            },
+            {
+              "label": "light",
+              "value": "light"
+            }
+          ]
         },
         {
-          "label": "ghost",
-          "value": "ghost"
-        },
-        {
-          "label": "dashed",
-          "value": "dashed"
-        },
-        {
-          "label": "link",
-          "value": "link"
-        },
-        {
-          "label": "text",
-          "value": "text"
-        }
-      ]
-    },
-    {
-      "id": "danger",
-      "label": "危险按钮",
-      "type": "radio",
-      "optionType": "button",
-      "defaultValue": false,
-      "options": [
-        {
-          "label": "是",
-          "value": true
-        },
-        {
-          "label": "否",
-          "value": false
+          "parentId": "search",
+          "id": "defaultCollapsed",
+          "label": "默认收起",
+          "type": "radio",
+          "defaultValue": true,
+          "options": [
+            {
+              "label": "是",
+              "value": true
+            },
+            {
+              "label": "否",
+              "value": false
+            }
+          ]
         }
       ]
     }

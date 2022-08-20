@@ -1,0 +1,58 @@
+import { ISetting } from '@/types';
+import InputSetter from '@/modules/Design/SettingPanel/components/InputSetter';
+import RadioSetter from '@/modules/Design/SettingPanel/components/RadioSetter';
+import SelectSetter from '@/modules/Design/SettingPanel/components/SelectSetter';
+import ArraySetter from '@/modules/Design/SettingPanel/components/ArraySetter';
+import React from 'react';
+import GroupSetter from '@/modules/Design/SettingPanel/components/GroupSetter';
+import { updateSettings } from '@/common/redux/componentsSlice';
+
+export function renderSetting(currentEditComponent: string, setting: ISetting) {
+  switch (setting.type) {
+    case 'input':
+      return <InputSetter componentId={currentEditComponent} setting={setting} />;
+    case 'radio':
+      return <RadioSetter componentId={currentEditComponent} setting={setting} />;
+    case 'select':
+      return <SelectSetter componentId={currentEditComponent} setting={setting} />;
+    case 'array':
+      return <ArraySetter componentId={currentEditComponent} setting={setting} />;
+    case 'group':
+      return <GroupSetter componentId={currentEditComponent} setting={setting} />;
+    default:
+      return <div>{`组件渲染失败: ${setting.label}`}</div>;
+  }
+}
+
+interface SettingsData {
+  dispatch: any;
+  componentId: string;
+  setting: ISetting;
+  value: any;
+  storeSetting: ISetting;
+}
+
+// 更新 redux 里的数据
+export function updateSettingsData({
+  dispatch,
+  componentId,
+  setting,
+  value,
+  storeSetting
+}: SettingsData) {
+  dispatch(
+    updateSettings({
+      id: componentId,
+      data: setting.parentId
+        ? {
+            [setting.parentId]: {
+              ...storeSetting[componentId][setting.parentId],
+              [setting.id]: value
+            }
+          }
+        : {
+            [setting.id]: value
+          }
+    })
+  );
+}

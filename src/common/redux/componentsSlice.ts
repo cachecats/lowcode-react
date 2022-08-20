@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { merge } from 'lodash';
 
 export const componentsSlice = createSlice({
   name: 'components',
@@ -16,6 +17,7 @@ export const componentsSlice = createSlice({
         ...state.settings[id],
         ...data
       };
+      // state.settings[id] = merge(state.settings[id], data);
     }
   }
 });

@@ -2,24 +2,25 @@ import React from 'react';
 import { SettingCommonProps } from '@/modules/Design/SettingPanel/types';
 import { Radio, RadioChangeEvent } from 'antd';
 import SettingRow from '@/modules/Design/SettingPanel/components/SettingRow';
-import { updateSettings } from '@/common/redux/componentsSlice';
-import { useDispatch } from 'react-redux';
+import { selectSettings, updateSettings } from '@/common/redux/componentsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSettingsData } from '@/modules/Design/SettingPanel/config';
 
 interface SettingRadioProps extends SettingCommonProps {}
 
 const RadioSetter: React.FC<SettingRadioProps> = ({ componentId, setting }) => {
   const dispatch = useDispatch();
+  const storeSetting = useSelector(selectSettings);
   const { label, optionType, options, defaultValue } = setting;
 
   function onChange(e: RadioChangeEvent) {
-    dispatch(
-      updateSettings({
-        id: componentId,
-        data: {
-          [setting.id]: e.target.value
-        }
-      })
-    );
+    updateSettingsData({
+      dispatch,
+      componentId,
+      setting,
+      value: e.target.value,
+      storeSetting
+    });
   }
 
   return (
