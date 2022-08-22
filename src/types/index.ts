@@ -14,6 +14,7 @@ export interface IOption {
   value: any;
   valueType?: ProFieldValueType;
   required?: boolean;
+  options?: IOption[];
 }
 
 export interface IMetaType {

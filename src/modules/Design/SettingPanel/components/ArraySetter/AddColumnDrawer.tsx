@@ -34,6 +34,9 @@ const AddColumnDrawer: React.FC<AddColumnDrawerProps> = ({
                 message: '此项为必填项'
               }
             ]
+          },
+          fieldProps: {
+            options: option.options
           }
         };
       }) || []
@@ -56,9 +59,9 @@ const AddColumnDrawer: React.FC<AddColumnDrawerProps> = ({
       <BetaSchemaForm
         layout={'horizontal'}
         rowProps={{
-          gutter: [16, 16]
+          wrap: true
         }}
-        labelCol={{ span: 5 }}
+        labelCol={{ span: 6 }}
         columns={columns}
         onFinish={onFinish}
         initialValues={initialValues}

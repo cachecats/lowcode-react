@@ -8,12 +8,20 @@
         {
           "title": "姓名",
           "dataIndex": "name",
-          "width": 100
+          "width": 100,
+          "ellipsis": true,
+          "copyable": false,
+          "hideInSearch": false,
+          "hideInTable": false
         },
         {
           "title": "年龄",
           "dataIndex": "age",
-          "width": 100
+          "width": 100,
+          "ellipsis": true,
+          "copyable": false,
+          "hideInSearch": false,
+          "hideInTable": false
         }
       ],
       "options": [
@@ -33,6 +41,66 @@
           "id": "width",
           "label": "列宽",
           "valueType": "digit"
+        },
+        {
+          "id": "ellipsis",
+          "label": "ellipsis",
+          "valueType": "radio",
+          "options": [
+            {
+              "label": "是",
+              "value": true
+            },
+            {
+              "label": "否",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "copyable",
+          "label": "可复制",
+          "valueType": "radio",
+          "options": [
+            {
+              "label": "是",
+              "value": true
+            },
+            {
+              "label": "否",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "hideInSearch",
+          "label": "搜索中隐藏",
+          "valueType": "radio",
+          "options": [
+            {
+              "label": "是",
+              "value": true
+            },
+            {
+              "label": "否",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "hideInTable",
+          "label": "表格中隐藏",
+          "valueType": "radio",
+          "options": [
+            {
+              "label": "是",
+              "value": true
+            },
+            {
+              "label": "否",
+              "value": false
+            }
+          ]
         }
       ]
     },
