@@ -4,6 +4,7 @@ import { SettingCommonProps } from '@/modules/Design/SettingPanel/types';
 import { renderSetting } from '@/modules/Design/SettingPanel/config';
 import { useDispatch } from 'react-redux';
 import { updateSettings } from '@/common/redux/componentsSlice';
+import CollapseContainer from '@/common/components/CollapseContainer';
 const { Panel } = Collapse;
 
 const GroupSetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => {
@@ -31,11 +32,9 @@ const GroupSetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => 
   }
 
   return (
-    <Collapse defaultActiveKey={['1']}>
-      <Panel header={label} key="1">
-        {children?.map((child) => renderSetting(componentId, child))}
-      </Panel>
-    </Collapse>
+    <CollapseContainer header={label}>
+      {children?.map((child) => renderSetting(componentId, child))}
+    </CollapseContainer>
   );
 };
 

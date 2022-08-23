@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import styles from './index.module.scss';
 import GridLayout from 'react-grid-layout';
-import DroppableContainer from '@/components/DragAndDrop/DroppableContainer';
-import DragContainer from '@/components/DragAndDrop/DragContainer';
+import DroppableContainer from '@/common/components/DragAndDrop/DroppableContainer';
+import DragContainer from '@/common/components/DragAndDrop/DragContainer';
 import { useSize } from 'ahooks';
 import EventBus from '@/common/EventBus';
 

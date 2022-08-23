@@ -6,6 +6,7 @@ import ArraySetter from '@/modules/Design/SettingPanel/components/ArraySetter';
 import React from 'react';
 import GroupSetter from '@/modules/Design/SettingPanel/components/GroupSetter';
 import { updateSettings } from '@/common/redux/componentsSlice';
+import JsonSetter from '@/modules/Design/SettingPanel/components/JsonSetter';
 
 export function renderSetting(currentEditComponent: string, setting: ISetting) {
   switch (setting.type) {
@@ -19,6 +20,8 @@ export function renderSetting(currentEditComponent: string, setting: ISetting) {
       return <ArraySetter componentId={currentEditComponent} setting={setting} />;
     case 'group':
       return <GroupSetter componentId={currentEditComponent} setting={setting} />;
+    case 'json':
+      return <JsonSetter componentId={currentEditComponent} setting={setting} />;
     default:
       return <div>{`组件渲染失败: ${setting.label}`}</div>;
   }

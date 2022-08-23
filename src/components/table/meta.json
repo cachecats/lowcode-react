@@ -1,6 +1,12 @@
 {
   "settings": [
     {
+      "id": "dataSource",
+      "label": "数据源",
+      "type": "json",
+      "defaultValue": "[]"
+    },
+    {
       "id": "columns",
       "label": "表格列",
       "type": "array",
@@ -114,7 +120,7 @@
           "id": "isSearch",
           "label": "启用搜索",
           "type": "radio",
-          "defaultValue": false,
+          "defaultValue": true,
           "options": [
             {
               "label": "关闭",

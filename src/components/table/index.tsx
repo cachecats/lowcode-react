@@ -18,7 +18,7 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
   const actionRef = useRef<ActionType>();
 
   const setting = useSelector(selectSettings);
-  const { columns, search } = useMemo(() => {
+  const { columns, search, dataSource } = useMemo(() => {
     return setting[id] || {};
   }, [setting, id]);
 
@@ -28,7 +28,7 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
         actionRef={actionRef}
         columns={columns}
         // request={onFetch}
-        dataSource={[]}
+        dataSource={dataSource || []}
         rowKey="id"
         pagination={pagination}
         dateFormatter="string"

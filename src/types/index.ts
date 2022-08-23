@@ -6,7 +6,8 @@ export type SettingType =
   | 'select'
   | 'array'
   | 'number'
-  | 'group';
+  | 'group'
+  | 'json';
 
 export interface IOption {
   id?: string;

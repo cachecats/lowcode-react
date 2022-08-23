@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
-import DragContainer from '@/components/DragAndDrop/DragContainer';
-import DroppableContainer from '@/components/DragAndDrop/DroppableContainer';
+import DragContainer from '@/common/components/DragAndDrop/DragContainer';
+import DroppableContainer from '@/common/components/DragAndDrop/DroppableContainer';
 import { COMPONENTS_LIST } from '@/config/ComponentsConfig';
 
 interface ComponentsPanelProps {}
