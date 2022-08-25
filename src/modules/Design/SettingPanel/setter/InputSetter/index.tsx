@@ -24,7 +24,7 @@ const InputSetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => 
   }
 
   return (
-    <SettingRow label={setting.label}>
+    <SettingRow label={setting.label} tips={setting.tips}>
       <Input value={value} onChange={onChange} {...setting} />
     </SettingRow>
   );

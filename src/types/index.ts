@@ -29,6 +29,7 @@ export interface ISetting {
   id: string;
   label: string;
   type: SettingType;
+  tips?: string;
   // radio 的 optionType
   optionType?: 'default' | 'button';
   defaultValue: any;

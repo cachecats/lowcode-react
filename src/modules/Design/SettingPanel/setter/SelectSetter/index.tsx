@@ -26,7 +26,7 @@ const SelectSetter: React.FC<SettingSelectProps> = ({ componentId, setting }) =>
   }
 
   return (
-    <SettingRow label={label}>
+    <SettingRow label={label} tips={setting.tips}>
       <Select
         options={options || []}
         defaultValue={defaultValue}

@@ -24,7 +24,7 @@ const RadioSetter: React.FC<SettingRadioProps> = ({ componentId, setting }) => {
   }
 
   return (
-    <SettingRow label={label}>
+    <SettingRow label={label} tips={setting.tips}>
       <Radio.Group
         options={options}
         onChange={onChange}

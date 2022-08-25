@@ -158,7 +158,8 @@
           "label": "scrollX",
           "type": "inputNumber",
           "addonAfter": "px",
-          "controls": false
+          "controls": false,
+          "tips": "表格宽度超过多少时滚动"
         }
       ]
     }

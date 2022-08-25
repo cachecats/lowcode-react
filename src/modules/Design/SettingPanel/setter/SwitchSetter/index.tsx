@@ -23,7 +23,7 @@ const SwitchSetter: React.FC<SettingCommonProps> = ({ componentId, setting }) =>
   }
 
   return (
-    <SettingRow label={label}>
+    <SettingRow label={label} tips={setting.tips}>
       <Switch size={'small'} defaultChecked={defaultValue} onChange={onChange} />
     </SettingRow>
   );

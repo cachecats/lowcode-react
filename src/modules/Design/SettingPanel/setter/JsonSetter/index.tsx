@@ -33,7 +33,7 @@ const JsonSetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => {
 
   return (
     <>
-      <SettingRow label={setting.label} card>
+      <SettingRow label={setting.label} card tips={setting.tips}>
         <EditOutlined
           onClick={onEdit}
           key={'1'}
