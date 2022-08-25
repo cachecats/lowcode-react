@@ -7,6 +7,7 @@ export type SettingType =
   | 'array'
   | 'number'
   | 'group'
+  | 'switch'
   | 'json';
 
 export interface IOption {

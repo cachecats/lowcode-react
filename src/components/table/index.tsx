@@ -28,7 +28,7 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
         actionRef={actionRef}
         columns={columns}
         // request={onFetch}
-        dataSource={[]}
+        dataSource={dataSource ? JSON.parse(dataSource) : []}
         rowKey="id"
         pagination={pagination}
         dateFormatter="string"

@@ -7,6 +7,8 @@ import React from 'react';
 import GroupSetter from '@/modules/Design/SettingPanel/setter/GroupSetter';
 import { updateSettings } from '@/common/redux/componentsSlice';
 import JsonSetter from '@/modules/Design/SettingPanel/setter/JsonSetter';
+import { Switch } from 'antd';
+import SwitchSetter from '@/modules/Design/SettingPanel/setter/SwitchSetter';
 
 export function renderSetting(currentEditComponent: string, setting: ISetting) {
   switch (setting.type) {
@@ -22,6 +24,8 @@ export function renderSetting(currentEditComponent: string, setting: ISetting) {
       return <GroupSetter componentId={currentEditComponent} setting={setting} />;
     case 'json':
       return <JsonSetter componentId={currentEditComponent} setting={setting} />;
+    case 'switch':
+      return <SwitchSetter componentId={currentEditComponent} setting={setting} />;
     default:
       return <div>{`组件渲染失败: ${setting.label}`}</div>;
   }

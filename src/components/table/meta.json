@@ -119,18 +119,8 @@
           "parentId": "search",
           "id": "isSearch",
           "label": "启用搜索",
-          "type": "radio",
-          "defaultValue": true,
-          "options": [
-            {
-              "label": "关闭",
-              "value": false
-            },
-            {
-              "label": "开启",
-              "value": true
-            }
-          ]
+          "type": "switch",
+          "defaultValue": true
         },
         {
           "parentId": "search",
@@ -153,18 +143,8 @@
           "parentId": "search",
           "id": "defaultCollapsed",
           "label": "默认收起",
-          "type": "radio",
-          "defaultValue": true,
-          "options": [
-            {
-              "label": "是",
-              "value": true
-            },
-            {
-              "label": "否",
-              "value": false
-            }
-          ]
+          "type": "switch",
+          "defaultValue": true
         }
       ]
     }
