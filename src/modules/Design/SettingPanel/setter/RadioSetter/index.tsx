@@ -1,7 +1,7 @@
 import React from 'react';
 import { SettingCommonProps } from '@/modules/Design/SettingPanel/types';
 import { Radio, RadioChangeEvent } from 'antd';
-import SettingRow from '@/modules/Design/SettingPanel/components/SettingRow';
+import SettingRow from '@/modules/Design/SettingPanel/setter/SettingRow';
 import { selectSettings, updateSettings } from '@/common/redux/componentsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSettingsData } from '@/modules/Design/SettingPanel/config';

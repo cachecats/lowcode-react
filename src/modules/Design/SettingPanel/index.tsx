@@ -7,10 +7,10 @@ import {
 } from '@/common/redux/componentsSlice';
 import { parseId } from '@/utils';
 import { IMetaType, ISetting } from '@/types';
-import InputSetter from '@/modules/Design/SettingPanel/components/InputSetter';
-import RadioSetter from '@/modules/Design/SettingPanel/components/RadioSetter';
-import SelectSetter from '@/modules/Design/SettingPanel/components/SelectSetter';
-import ArraySetter from '@/modules/Design/SettingPanel/components/ArraySetter';
+import InputSetter from '@/modules/Design/SettingPanel/setter/InputSetter';
+import RadioSetter from '@/modules/Design/SettingPanel/setter/RadioSetter';
+import SelectSetter from '@/modules/Design/SettingPanel/setter/SelectSetter';
+import ArraySetter from '@/modules/Design/SettingPanel/setter/ArraySetter';
 import { renderSetting } from '@/modules/Design/SettingPanel/config';
 
 interface SettingPanelProps {}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
-import SettingRow from '@/modules/Design/SettingPanel/components/SettingRow';
+import SettingRow from '@/modules/Design/SettingPanel/setter/SettingRow';
 import { ISetting } from '@/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSettings, updateSettings } from '@/common/redux/componentsSlice';

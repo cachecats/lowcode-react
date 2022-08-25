@@ -33,7 +33,9 @@ const GroupSetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => 
 
   return (
     <CollapseContainer header={label}>
-      {children?.map((child) => renderSetting(componentId, child))}
+      {children?.map((child) => (
+        <div key={child.id}>{renderSetting(componentId, child)}</div>
+      ))}
     </CollapseContainer>
   );
 };

@@ -4,8 +4,8 @@ import { Button, Collapse } from 'antd';
 import { DragSortTable } from '@ant-design/pro-components';
 import { PlusOutlined } from '@ant-design/icons';
 import styles from './index.module.scss';
-import { getColumns } from '@/modules/Design/SettingPanel/components/ArraySetter/config';
-import AddColumnDrawer from '@/modules/Design/SettingPanel/components/ArraySetter/AddColumnDrawer';
+import { getColumns } from '@/modules/Design/SettingPanel/setter/ArraySetter/config';
+import AddColumnDrawer from '@/modules/Design/SettingPanel/setter/ArraySetter/AddColumnDrawer';
 import { useDispatch } from 'react-redux';
 import { updateSettings } from '@/common/redux/componentsSlice';
 

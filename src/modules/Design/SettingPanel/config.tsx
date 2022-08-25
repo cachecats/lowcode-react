@@ -1,12 +1,12 @@
 import { ISetting } from '@/types';
-import InputSetter from '@/modules/Design/SettingPanel/components/InputSetter';
-import RadioSetter from '@/modules/Design/SettingPanel/components/RadioSetter';
-import SelectSetter from '@/modules/Design/SettingPanel/components/SelectSetter';
-import ArraySetter from '@/modules/Design/SettingPanel/components/ArraySetter';
+import InputSetter from '@/modules/Design/SettingPanel/setter/InputSetter';
+import RadioSetter from '@/modules/Design/SettingPanel/setter/RadioSetter';
+import SelectSetter from '@/modules/Design/SettingPanel/setter/SelectSetter';
+import ArraySetter from '@/modules/Design/SettingPanel/setter/ArraySetter';
 import React from 'react';
-import GroupSetter from '@/modules/Design/SettingPanel/components/GroupSetter';
+import GroupSetter from '@/modules/Design/SettingPanel/setter/GroupSetter';
 import { updateSettings } from '@/common/redux/componentsSlice';
-import JsonSetter from '@/modules/Design/SettingPanel/components/JsonSetter';
+import JsonSetter from '@/modules/Design/SettingPanel/setter/JsonSetter';
 
 export function renderSetting(currentEditComponent: string, setting: ISetting) {
   switch (setting.type) {
