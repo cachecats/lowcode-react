@@ -2,6 +2,7 @@ import { ProFieldValueType } from '@ant-design/pro-components';
 
 export type SettingType =
   | 'input'
+  | 'inputNumber'
   | 'radio'
   | 'select'
   | 'array'
@@ -33,6 +34,16 @@ export interface ISetting {
   defaultValue: any;
   options?: IOption[];
   children?: ISetting[];
+  // inputNumber 的最小值
+  min?: number;
+  // inputNumber 的最大值
+  max?: number;
+  // inputNumber 的加减按钮是否显示
+  controls?: boolean;
+  // inputNumber 的后置标签
+  addonAfter?: string;
+  // inputNumber 的前置标签
+  addonBefore?: string;
 }
 
 export interface IArraySetter {

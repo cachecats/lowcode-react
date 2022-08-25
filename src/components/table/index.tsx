@@ -18,7 +18,7 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
   const actionRef = useRef<ActionType>();
 
   const setting = useSelector(selectSettings);
-  const { columns, search, dataSource } = useMemo(() => {
+  const { columns, search, dataSource, scrollX } = useMemo(() => {
     return setting[id] || {};
   }, [setting, id]);
 
@@ -33,7 +33,7 @@ const LTable: React.FC<LTableProps> = ({ id, ...rest }) => {
         pagination={pagination}
         dateFormatter="string"
         search={search?.isSearch ? omit(search, 'isSearch') : false}
-        // scroll={{ x: 1200 }}
+        scroll={{ x: scrollX }}
         toolbar={{ actions: [] }}
         toolBarRender={false}
       />

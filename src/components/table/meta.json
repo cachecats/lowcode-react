@@ -147,6 +147,20 @@
           "defaultValue": true
         }
       ]
+    },
+    {
+      "id": "other",
+      "label": "其他设置",
+      "type": "group",
+      "children": [
+        {
+          "id": "scrollX",
+          "label": "scrollX",
+          "type": "inputNumber",
+          "addonAfter": "px",
+          "controls": false
+        }
+      ]
     }
   ]
 }
