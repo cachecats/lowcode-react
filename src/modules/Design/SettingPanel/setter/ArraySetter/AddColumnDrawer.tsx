@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Drawer, Form } from 'antd';
 import { IOption } from '@/types';
 import {
@@ -57,6 +57,17 @@ const AddColumnDrawer: React.FC<AddColumnDrawerProps> = ({
         }) || []
     );
   }, [options]);
+
+  useEffect(() => {
+    setEditorValues(
+      jsonItems?.map((item) => {
+        return {
+          id: item.id,
+          value: initialValues?.[item.id]
+        };
+      })
+    );
+  }, [initialValues, jsonItems]);
 
   function onClose() {
     setVisible(false);
@@ -120,9 +131,8 @@ const AddColumnDrawer: React.FC<AddColumnDrawerProps> = ({
               height="300px"
               theme="vs-dark"
               defaultLanguage={'javascript'}
-              defaultValue={''}
+              defaultValue={editorValues.find((val) => val.id === item.id)?.value}
               onChange={(value, ev) => onEditorChange(value, item.id)}
-              value={editorValues.find((val) => val.id === item.id)?.value}
               options={{
                 tabSize: 2
               }}
