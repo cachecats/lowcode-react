@@ -16,6 +16,7 @@ export interface IOption {
   label: string | number;
   value: any;
   valueType?: ProFieldValueType;
+  type?: string;
   required?: boolean;
   options?: IOption[];
 }
@@ -51,4 +52,12 @@ export interface IArraySetter {
   id: string;
   label: string;
   type: SettingType;
+}
+
+export interface ITableOptionColumn {
+  // 按钮名
+  name: string;
+  // 按钮类型
+  type: 'primary' | 'danger';
+  onClick: string;
 }

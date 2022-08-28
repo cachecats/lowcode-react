@@ -54,6 +54,7 @@ const ArraySetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => 
     setDataSource(dataSource?.filter((item) => item.id !== row.id));
   }
   async function onFinish(values: ITableData) {
+    console.log('finish', values);
     currentRow.current ? updateDataSource(values) : addNewData(values);
     setVisible(false);
   }
@@ -74,7 +75,7 @@ const ArraySetter: React.FC<SettingCommonProps> = ({ componentId, setting }) => 
 
   function addNewData(values: ITableData) {
     setDataSource([
-      ...dataSource,
+      ...(dataSource || []),
       {
         ...values,
         id: Date.now()

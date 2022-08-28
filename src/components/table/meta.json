@@ -111,6 +111,41 @@
       ]
     },
     {
+      "id": "optionColumns",
+      "label": "操作列",
+      "type": "array",
+      "options": [
+        {
+          "id": "name",
+          "label": "名称",
+          "valueType": "text",
+          "required": true
+        },
+        {
+          "id": "type",
+          "label": "按钮样式",
+          "valueType": "select",
+          "required": true,
+          "defaultValue": "primary",
+          "options": [
+            {
+              "label": "主按钮",
+              "value": "primary"
+            },
+            {
+              "label": "危险按钮",
+              "value": "danger"
+            }
+          ]
+        },
+        {
+          "id": "onClick",
+          "label": "事件绑定",
+          "type": "json"
+        }
+      ]
+    },
+    {
       "id": "search",
       "label": "搜索栏",
       "type": "group",

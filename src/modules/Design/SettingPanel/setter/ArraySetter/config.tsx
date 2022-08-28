@@ -16,7 +16,10 @@ export function getColumns({ options, onEdit, onDelete }: Columns): ProColumns[]
       return {
         title: option.label,
         dataIndex: option.id,
-        valueType: option.valueType
+        valueType: option.valueType,
+        fieldProps: {
+          options: option.options
+        }
       };
     }) || [];
   const optionColumn: ProColumns = {

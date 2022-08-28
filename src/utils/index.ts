@@ -8,13 +8,6 @@ export function findComponentsById(id: string): IComponentsType {
   return COMPONENTS_LIST.find((item) => item.id === id) || ({} as any);
 }
 
-export function transBasicList2Options(list: string[]): IOption[] {
-  return list?.map((item) => ({
-    label: item,
-    value: item
-  }));
-}
-
 export function formatId(id: string | number) {
   return `${id}${ID_DELIMITER}${new Date().getTime()}`;
 }

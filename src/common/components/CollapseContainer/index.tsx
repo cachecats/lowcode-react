@@ -12,7 +12,7 @@ const CollapseContainer: React.FC<CollapseContainerProps> = ({
   children
 }) => {
   return (
-    <Collapse defaultActiveKey={['1']} style={{ marginTop: 10 }}>
+    <Collapse defaultActiveKey={['1']}>
       <Panel header={header} key="1">
         {children}
       </Panel>
