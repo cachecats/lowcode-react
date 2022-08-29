@@ -51,62 +51,26 @@
         {
           "id": "ellipsis",
           "label": "ellipsis",
-          "valueType": "radio",
-          "options": [
-            {
-              "label": "是",
-              "value": true
-            },
-            {
-              "label": "否",
-              "value": false
-            }
-          ]
+          "valueType": "switch",
+          "defaultValue": false
         },
         {
           "id": "copyable",
           "label": "可复制",
-          "valueType": "radio",
-          "options": [
-            {
-              "label": "是",
-              "value": true
-            },
-            {
-              "label": "否",
-              "value": false
-            }
-          ]
+          "valueType": "switch",
+          "defaultValue": false
         },
         {
           "id": "hideInSearch",
           "label": "搜索中隐藏",
-          "valueType": "radio",
-          "options": [
-            {
-              "label": "是",
-              "value": true
-            },
-            {
-              "label": "否",
-              "value": false
-            }
-          ]
+          "valueType": "switch",
+          "defaultValue": false
         },
         {
           "id": "hideInTable",
           "label": "表格中隐藏",
-          "valueType": "radio",
-          "options": [
-            {
-              "label": "是",
-              "value": true
-            },
-            {
-              "label": "否",
-              "value": false
-            }
-          ]
+          "valueType": "switch",
+          "defaultValue": false
         }
       ]
     },
