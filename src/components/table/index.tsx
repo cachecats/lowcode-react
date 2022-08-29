@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectSettings } from '@/common/redux/componentsSlice';
-import { Table } from 'antd';
-import { ActionType, ProColumns, ProTable } from '@ant-design/pro-components';
+import { ActionType, ProTable } from '@ant-design/pro-components';
 import { omit } from 'lodash';
 import { combineColumns } from '@/components/table/config';
 
