@@ -21,11 +21,12 @@ export function combineColumns(columns: any[], optionColumns: ITableOptionColumn
               // func(record);
               console.log('item.onClick', item.onClick);
               // transformAsync(item.onClick, { presets: ['es2015', 'react'] }).then(
-              transformAsync(item.onClick, { presets: [], ast: true }).then(
-                (res) => {
-                  console.log('transformAsync', res);
-                }
-              );
+              transformAsync(item.onClick, {
+                presets: [],
+                ast: true
+              }).then((res) => {
+                console.log('transformAsync', res);
+              });
             }}
           >
             {item.name}
